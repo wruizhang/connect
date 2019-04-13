@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset="UTF-8">
+	<title>welcome to connect</title>
+<!--	using a couple of google fonts-->
+	<link rel = "stylesheet" type = "text/css" href = "https://fonts.googleapis.com/css?family=Source+Sans+Pro"/>
+	<link rel = "stylesheet" type = "text/css" href = "https://fonts.googleapis.com/css?family=Ubuntu"/>
+	<link rel= "stylesheet" type = "text/css" href = "page_style.css"/>
+	<script src = "https://code.jquery.com/jquery-3.3.1.min.js" defer> </script>
+	<script src = "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js" defer> </script>
+	<script src = "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.js" defer> </script>
+	<script src = "ui_interactions.js" defer> </script>
+
+</head>
+
+<body>
+	<header class = "top_nav"> 
+		<div class = "menu">
+			<nav>
+				<ul>
+					<li id = "title" class = "logo_float_to_left"> 
+						<a href = "index.html"> connect </a>
+					</li>
+					<li class = "menubar">
+						<button onclick = "login();"> Login</button>
+					</li>
+					<li class = "menubar">
+						<button onclick = "signup();"> Sign Up</button>
+					</li>
+				</ul>
+			</nav>
+		</div>	
+	</header>
+
+<main> 
+	<div id = "login" class = "pop_window">
+		<form class = "pop_content" method = "post" action = "login.php">
+			<div class = "container">
+				<label for = "user"> welcome back!</label>
+				<div>
+					<br>
+					<input type = "text" name = "user" placeholder = "username/email" required> 
+				</div>
+				<br>
+				<div>
+					<!--enter a desired password: it must be at least 6 characters, with letters (upper and lowercase) and digits only;		-->
+					<input type = "password" name = "pw" id = "pw"  pattern="[A-Za-z\d]{6,}" placeholder="password" required>
+				</div>
+				<br>
+				<div>
+				<!--				use DOM & javascript to change display mode of the page-->
+					<button onclick = "document.getElementById('login').style.display = 'none';"> go back </button>
+					<input type = "submit" value = "login">
+				</div>
+			</div>
+		</form>
+	</div>
+	
+
+	<div id = "register" class = "pop_window">
+<!--		redirect to php page for new user account registration -->
+		<form class = "pop_content" method = "post" action = "register.php">
+			<div class = "container">
+				<label for = "user"> welcome to connect!</label>
+				<div>
+				<br>
+				<input type = "text" name = "username" class = "user_info" placeholder = "username/email" required> 
+				</div>
+				<br>
+				<div id = "passw">
+				<!--enter a desired password: it must be at least 6 characters, with letters (upper and lowercase) and digits only;		-->
+				<input type = "password" name = "pass" id = "pass" class = "user_info"  pattern="[A-Za-z\d]{6,}" placeholder="password" required>
+				<label for = "pass"> *password must be 6 or more digits </label>
+				<br>
+				</div>
+				<br>
+				<div>
+<!--				use DOM & javascript to change display mode of the page-->
+				<button onclick = "document.getElementById('register').style.display = 'none'"> go back </button>
+				<input type = "submit" value = "sign up">
+				</div>
+			</div>
+		</form>	
+	</div>
+
+
+	<section id = "intro">
+		<div class = "cf"> </div>
+<!--		type effects/interactions inspired by Marisa Lu's portfolio site https://marisa.lu-->
+		<div class = "center_intro">
+			<p class = "intro_texts">
+				welcome to   
+				<a href = "#" target = "_blank" class = "hoverSiteName"> connect</a>, a place for  
+				<a href = "#" target = "_blank" class = "hoverPeople"> students </a> 
+				to collaborate on self-initiated projects.
+			</p>
+
+			<a id = "scroll_down" href = "#featuredproj"> <img src = "images/scrollarrow.svg" width="40px" alt = "scroll"> </a>
+		</div>
+		
+		
+	</section>
+	
+	
+	<section class = "content_topics_display">
+		<br>
+		<br>
+		<a id = "featuredproj" href = "#topic_1" > featured projects </a>
+		<br>
+		<br>
+		<article id = "topic_1">
+			<a href = "#topic_1"> art and design </a> 
+			<br>
+			<div class = "content_display_container">
+				<div class = "content_box">
+					<div class = "column">
+						<img src = "images/monkey.jpg" alt = "monkey&moon">
+						<p>
+							"monkey & the moon", animation
+						</p>
+					</div>
+					<div class = "column2"> 
+						<img src = "images/drawing_p5.jpg" alt = "drawing tool p5.js">
+						<p>
+							"drawing tool", generative coding, graphic design
+						</p>
+					</div>
+				</div>
+			</div>
+		</article>	
+		
+		<br>
+		<br>
+		<article id = "topic_2">
+			<a href = "#topic_2" > technology </a> 
+			<br>
+			<div class = "content_display_container">
+				<div class = "content_box"> 
+					<div class = "column">
+						<img src = "images/connect.jpg" alt = "connect app ux">
+						<p>
+						"connect", user experience
+						</p>
+					</div>
+				</div>
+			</div>
+		</article>
+		<br>
+		<br>
+		<article id = "topic_3">
+			<a href = "#topic_3"> sustainability </a>
+			<br> 
+			<div class = "content_display_container">
+			 	<div class = "content_box"> 
+					<div class = "column">
+						<img src = "images/waste.jpg" alt = "game_design">
+						<p>
+							"waste", typography, sustainable consumption
+						</p>
+					</div>
+					<div class = "column2"> 
+						<img src = "images/dcmug.jpg" alt = "donut coffee mug">
+						<p>
+							"donut coffee mug"
+						</p>
+					</div>
+					
+				</div>
+			</div>
+		</article>
+	</section>
+
+</main>
+<!--	copyright info-->
+<!--
+    <footer>
+        <small>
+            This page is &copy; 2019 by Wenrui Zhang
+        </small>
+    </footer>
+-->
+</body>
+</html>
